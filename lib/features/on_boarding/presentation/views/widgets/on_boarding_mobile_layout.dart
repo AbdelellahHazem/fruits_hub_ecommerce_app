@@ -1,10 +1,33 @@
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:fruits_hub_ecommerce_app/constants.dart';
+import 'package:fruits_hub_ecommerce_app/core/utils/app_colors.dart';
+import 'package:fruits_hub_ecommerce_app/core/widgets/custom_button.dart';
+import 'package:fruits_hub_ecommerce_app/features/on_boarding/presentation/views/widgets/on_boarding_page_view.dart';
 
 class OnBoardingMobileLayout extends StatelessWidget {
   const OnBoardingMobileLayout({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Column(
+      children: [
+        Expanded(child: OnBoardingPageView()),
+
+        DotsIndicator(
+          dotsCount: 2,
+          decorator: DotsDecorator(
+            activeColor: AppColors.primaryColor,
+            color: AppColors.primaryColor.withOpacity(0.5),
+          ),
+        ),
+        SizedBox(height: 22),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
+          child: CustomButton(onPressed: () {}, text: 'ابدأ الان'),
+        ),
+        SizedBox(height: 35),
+      ],
+    );
   }
 }
